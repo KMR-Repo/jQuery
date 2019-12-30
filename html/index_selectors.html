@@ -1,0 +1,83 @@
+<!-- Random script try in browser-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Selectors</title>
+    </head>
+    <body>
+        <center>
+            <button id="KMR_button">:)</button>
+            <div id="div_tag">
+                <p id= "p1" class="KMRclass">this may change</p>
+                <p id="KMR_id">This also will change</p>
+                <p id= "p3" name="Muthu">I am not sure</p>
+            </div>
+            <p id="Text_Idea"></p>
+        </center>
+        <script 
+            src="https://code.jquery.com/jquery-3.4.1.min.js" 
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+            crossorigin="anonymous">
+        </script>
+        <script>
+                            //$(".KMRclass").text("Old value");
+            $("#p1").click(function(){
+                $("#p1").text("Once More");
+            });
+            $("#p3").click(function(){
+                $("#p3").text("Once More");
+            });
+            $("#KMR_id").click(function(){
+                $("#KMR_id").text("Once More");
+            });
+            $("#KMR_button").click(function () {for(i=0; i< 5; i++)KMR_Magic();i++;});
+
+            //On button click this function will get called
+            function KMR_Magic()
+            {
+                //Object to store old values
+                //console.log('1');
+                var old = {
+                    KMR_class : function ()
+                        {
+                            var i = $(".KMRclass").text();
+                            return i;
+                        },
+                    KMR_id : function ()
+                        {
+                            var i = $("#KMR_id").text();
+                            return i ;
+                        },
+                    KMR_attribute :function ()
+                        {
+                            var i = $("[name=Muthu]").text()
+                            return i;
+                        },
+                    random : function ()
+                    {
+                        return (Math.floor(Math.random() * 255));
+                    },
+                    rgb : function ()
+                    {
+                        return ("rgb(" + this.random() + "," + this.random() + "," + this.random() + ")");
+                    }
+                };
+                //console.log(old.rgb());
+                //console.log(old.rgb());
+                //console.log(old.rgb());
+                //console.log(old.rgb());
+                $("#Text_Idea").html("<h3>Hello!</h3><h4>Muthu!!</h4><h3>Starting......</h3>");
+                $(".KMRclass").text(" :" + old.KMR_class() + ": " );
+                $("#KMR_id").text(" :" + old.KMR_id() + ": " );
+                $("[name=Muthu]").text(" :" + old.KMR_attribute() + ": " );
+                $("div").css("color",old.rgb());
+                $("#p1").css("color",old.rgb());
+                $("#p3").css("color",old.rgb());
+            }
+
+        </script>
+    </body>
+</html>

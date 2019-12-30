@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Call Back Function</title>
+</head>
+<body>
+    <center>
+        <div id="Hello">Hi Muthu</div>
+        <div id="Hide">
+            <input type="text" placeholder="Input" id="Input"></input>
+        </div>
+        <div id="Raise"></div>
+        <script 
+            src="https://code.jquery.com/jquery-3.4.1.min.js" 
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+            crossorigin="anonymous">
+        </script>
+        <script>
+            var temp = "No Value";
+            $("#Hello").click(function(){alert("Hi KMR!");});
+            $("#Input").change(function (temp){
+                    temp = $("#Input").val();
+                    $("#Input").hide(function (){
+                        alert("Bye Muthu");
+                        $("#Raise").html("<h2>" + temp + "</h2>");
+                    })
+                }
+                );
+        </script>
+    </center>
+</body>
+</html>
