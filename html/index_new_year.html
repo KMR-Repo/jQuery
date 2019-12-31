@@ -1,0 +1,86 @@
+<!-- Random script try in browser-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Selectors</title>
+    </head>
+    <body style="background-color:black;" onmousemove="KMR_Magic()" onload="add_elements()"></body>> 
+        <center>
+            <button id="KMR_button" onclick="Happy_New_Year()">:)</button>
+            <div id="div_tag">
+                <!--div>
+                <span id="l1p1"></span>
+                <span id="l1p2"></span>
+                <span id="l1p3"></span>
+                </br>
+                <span id="l2p1"></span>
+                <span id="l2p2"></span>
+                <span id="l2p3"></span>
+                </br>
+                <span id="l3p1"></span>
+                <span id="l3p2"></span>
+                <span id="l3p3"></span>
+                <-->
+            </div>
+            <p><font color="red" id="new_year"></font></p>
+        </center>
+        <script 
+            src="https://code.jquery.com/jquery-3.4.1.min.js" 
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+            crossorigin="anonymous">
+        </script>
+        <script>
+            function add_elements ()
+            {
+                var sInnerHTML = "";
+                for(l=1; l<=30; l++)
+                {
+                    for(p=1; p<=30; p++)
+                    sInnerHTML += '<span id="l' + l + 'p' + p + '"></span>';
+                    sInnerHTML += '</br>';
+                }
+                /*
+                $("#div_tag").html('<span id="l1p1"></span><span id="l1p2"></span><span id="l1p3"></span>'
+                + '</br>' +
+                '<span id="l2p1"></span><span id="l2p2"></span><span id="l2p3"></span>'
+                + '</br>' +
+                '<span id="l3p1"></span><span id="l3p2"></span><span id="l3p3"></span>');
+                */
+                $("#div_tag").html(sInnerHTML);
+            }
+            //On button click this function will get called
+            function KMR_Magic()
+            {
+                //Object to store old values
+                var color = {
+                    random : function ()
+                    {
+                        return (Math.floor(Math.random() * 255));
+                    },
+                    rgb : function ()
+                    {
+                        return ("rgb(" + this.random() + "," + this.random() + "," + this.random() + ")");
+                    }
+                };
+                for(i=1; i<=30; i++)
+                {
+                    for(j=1; j<=30 ; j++)
+                    {
+                        var postion = "#l" + i + "p" + j;
+                        $(postion).text("\u273A");
+                        $(postion).css("color",color.rgb());
+                    }
+                }
+                
+            }
+            function Happy_New_Year()
+            {
+                alert("Happy New Year !!!!!");
+            }
+
+        </script>
+    </body>
+</html>
